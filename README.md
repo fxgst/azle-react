@@ -1,57 +1,70 @@
-# icp_azle_react
+# Vite + React + Rust + EVM RPC
 
-Welcome to your new icp_azle_react project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+This template gives you everything you need to build a full-stack Web3 application on the [Internet Computer](https://internetcomputer.org/).
+It includes a frontend built with Vite and React, and a backend written in JS/TS (Azle).
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+## Get started with one click:
+### In your browser:
 
-To learn more before you start working with icp_azle_react, see the following documentation available online:
+In Gitpod 
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/fxgst/azle-react/)
 
-If you want to start working on your project right away, you might want to try the following commands:
+or GitHub Codespaces
 
-```bash
-cd icp_azle_react/
-dfx help
-dfx canister --help
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/fxgst/azle-react/?quickstart=1)
+
+
+### Locally:
+
+Make sure you have you have Docker and VS Code installed and running, then click the button below
+
+[![Open locally in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/fxgst/azle-react)
+
+### Or do the manual setup:
+
+Make sure that [Node.js](https://nodejs.org/en/) `>= 21` and [`dfx`](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.18` are installed on your system.
+
+Run the following commands in a new, empty project directory:
+
+```sh
+git clone https://github.com/fxgst/azle-react.git # Download this starter project
+cd azle-react # Navigate to the project directory
+dfx start --clean --background # Run dfx in the background
+npm install # Install project dependencies
+dfx deploy # Deploy canisters locally
+
+npm start # Start the development server
 ```
 
-## Running the project locally
+## 🚀 Develop
 
-If you want to test your project locally, you can use the following commands:
+The frontend will update automatically as you save changes. 
+For the backend, run `dfx deploy backend` to redeploy.
+To redeploy all canisters (front- and backend), run `dfx deploy`.
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
+When ready, run `dfx deploy --network ic` to deploy your application to the ICP mainnet.
 
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
+## 🛠️ Technology Stack
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+- [Vite](https://vitejs.dev/): high-performance tooling for front-end web development
+- [React](https://reactjs.org/): a component-based UI library
+- [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
+- [Sass](https://sass-lang.com/): an extended syntax for CSS stylesheets
+- [Azle CDK](https://demergent-labs.github.io/azle/): the Canister Development Kit for JS/TS
 
-If you have made changes to your backend canister, you can generate a new candid interface with
+## 📚 Documentation
 
-```bash
-npm run generate
-```
+- [Internet Computer docs](https://internetcomputer.org/docs/current/developer-docs/ic-overview)
+- [Internet Computer wiki](https://wiki.internetcomputer.org/)
+- [Internet Computer forum](https://forum.dfinity.org/)
+- [Vite developer docs](https://vitejs.dev/guide/)
+- [React quick start guide](https://react.dev/learn)
+- [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)
+- [Azle developer docs](https://internetcomputer.org/docs/current/developer-docs/backend/typescript/)
+- [Developer Experience Feedback Board](https://dx.internetcomputer.org/)
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
 
-If you are making frontend changes, you can start a development server with
+## 💡 Tips and Tricks
 
-```bash
-npm start
-```
-
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+- If the links printed by dfx do not work in Codespaces, run `./canister_urls.py` and click the links shown there.
