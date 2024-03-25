@@ -21,23 +21,18 @@ Make sure you have you have Docker and VS Code installed and running, then click
 
 [![Open locally in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/fxgst/azle-react)
 
-### Or do the manual setup:
 
-Make sure that [Node.js](https://nodejs.org/en/) `>= 21` and [`dfx`](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.18` are installed on your system.
+## 🚀 Develop
 
-Run the following commands in a new, empty project directory:
+When the editor opened, run the following commands to deploy the canisters and start a development server:
 
 ```sh
-git clone https://github.com/fxgst/azle-react.git # Download this starter project
-cd azle-react # Navigate to the project directory
 dfx start --clean --background # Run dfx in the background
 npm install # Install project dependencies
 dfx deploy # Deploy canisters locally
 
 npm start # Start the development server
 ```
-
-## 🚀 Develop
 
 The frontend will update automatically as you save changes. 
 For the backend, run `dfx deploy backend` to redeploy.
