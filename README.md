@@ -27,7 +27,6 @@ Make sure you have you have Docker and VS Code installed and running, then click
 When the editor opened, run the following commands to deploy the canisters and start a development server:
 
 ```sh
-dfx start --clean --background # Run dfx in the background
 npm install # Install project dependencies
 dfx deploy # Deploy canisters locally
 
@@ -63,3 +62,4 @@ When ready, run `dfx deploy --network ic` to deploy your application to the ICP 
 ## 💡 Tips and Tricks
 
 - If the links printed by dfx do not work in Codespaces, run `./canister_urls.py` and click the links shown there.
+- If you get an error "Error: An error happened during communication with the replica: ... Connection refused", run `dfx start --clean --background` to start dfx

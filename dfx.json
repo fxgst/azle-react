@@ -1,7 +1,7 @@
 {
   "canisters": {
     "backend": {
-      "build": "npx azle backend",
+      "build": "npx azle backend --native-compilation",
       "candid": "src/backend/backend.did",
       "gzip": true,
       "main": "src/backend/src/index.ts",
