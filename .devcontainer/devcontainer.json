@@ -1,0 +1,17 @@
+{
+    "name": "ICP Azle x React Dev Container",
+    "image": "ghcr.io/dfinity/icp-dev-env-azle:6",
+    "forwardPorts": [
+        4943
+    ],
+    "portsAttributes": {
+        "4943": {
+            "label": "dfx",
+            "onAutoForward": "ignore"
+        }
+    },
+    "onCreateCommand": "nohup bash -c 'dfx start &'",
+    "updateContentCommand": "sed -i 's/npx azle backend/npx azle backend --native-compilation/g' dfx.json",
+    "postAttachCommand": "([ -f nohup.out ] && (npm i && cat nohup.out && rm nohup.out)) || exit 0",
+    "remoteUser": "root"
+}
