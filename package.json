@@ -15,5 +15,8 @@
   "workspaces": [
     "src/backend",
     "src/frontend"
-  ]
+  ],
+  "devDependencies": {
+    "express": "^4.17.21"
+ }
 }
