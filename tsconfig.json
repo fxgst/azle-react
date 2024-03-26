@@ -1,4 +1,5 @@
 {
+    "allowSyntheticDefaultImports": true,
     "compilerOptions": {
         "strict": true,
         "target": "ES2020",
