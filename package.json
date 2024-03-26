@@ -1,19 +1,18 @@
 {
+  "name": "backend2",
+  "version": "0.1.0",
+  "description": "Internet Computer message board application",
+  "dependencies": {
+    "@dfinity/agent": "^0.21.4",
+    "@dfinity/candid": "^0.21.4",
+    "azle": "^0.20.2",
+    "express": "^4.18.2",
+    "uuid": "^9.0.1"
+  },
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": "^20"
   },
-  "name": "icp_azle_react",
-  "scripts": {
-    "build": "npm run build --workspaces --if-present",
-    "prebuild": "npm run prebuild --workspaces --if-present",
-    "pretest": "npm run prebuild --workspaces --if-present",
-    "start": "npm start --workspaces --if-present",
-    "test": "npm test --workspaces --if-present"
-  },
-  "type": "module",
-  "workspaces": [
-    "src/backend",
-    "src/frontend"
-  ]
+  "devDependencies": {
+    "@types/express": "^4.17.21"
+  }
 }
