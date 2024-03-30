@@ -4,6 +4,6 @@
     "private": true,
     "type": "module",
     "dependencies": {
-        "azle": "^0.21.0-rc.0"
+        "azle": "^0.21.0"
     }
 }
