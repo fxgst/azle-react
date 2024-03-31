@@ -1,120 +1,66 @@
-# Azle Hello World
+# ICP Development Environment with Azle and React
 
--   [Installation](#installation)
--   [Deployment](#deployment)
--   [Examples](#examples)
+This template gives you everything you need to build a full-stack Web3 application on the [Internet Computer](https://internetcomputer.org/).
+It includes a frontend built with Vite and React, and a backend written in JS/TS (Azle).
 
-Azle helps you to build secure decentralized/replicated servers in TypeScript or JavaScript on [ICP](https://internetcomputer.org/). The current replication factor is [13-40 times](https://dashboard.internetcomputer.org/subnets).
+## Get started with one click:
+### In your browser:
 
-For more documentation please see [The Azle Book](https://demergent-labs.github.io/azle/).
+In Gitpod 
 
-Please remember that Azle is in beta and thus it may have unknown security vulnerabilities due to the following:
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/fxgst/azle-react/)
 
--   Azle is built with various software packages that have not yet reached maturity
--   Azle does not yet have multiple independent security reviews/audits
--   Azle does not yet have many live, successful, continuously operating applications deployed to ICP
+or GitHub Codespaces
 
-## Installation
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/fxgst/azle-react/?quickstart=1)
 
-> Windows is only supported through a Linux virtual environment of some kind, such as [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-On Ubuntu/WSL:
+### Locally:
 
-```bash
-sudo apt-get install podman
+Make sure you have you have the latest version of Docker (e.g. >25) and VS Code installed and running, then click the button below
+
+[![Open locally in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/fxgst/azle-react)
+
+
+## 🚀 Develop
+
+When the editor opened, run the following commands to deploy the smart contract and start a development server:
+
+```sh
+npm install # Install project dependencies
+dfx start --clean # Start the local ICP node
+dfx deploy # Deploy smart contract locally
+
+npm start # Start the development server
 ```
 
-On Mac:
+The frontend will update automatically as you save changes. 
+For the backend, run `dfx deploy backend` to redeploy.
+To redeploy the smart contract, run `dfx deploy`.
 
-```bash
-brew install podman
-```
+When ready, run `dfx deploy --network ic` to deploy your application to the ICP mainnet.
 
-It's recommended to use nvm and Node.js 20:
+## 🛠️ Technology Stack
 
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-```
+- [Vite](https://vitejs.dev/): high-performance tooling for front-end web development
+- [React](https://reactjs.org/): a component-based UI library
+- [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
+- [Sass](https://sass-lang.com/): an extended syntax for CSS stylesheets
+- [Azle CDK](https://demergent-labs.github.io/azle/): the Canister Development Kit for JS/TS
 
-Restart your terminal and then run:
+## 📚 Documentation
 
-```bash
-nvm install 20
-```
+- [Internet Computer docs](https://internetcomputer.org/docs/current/developer-docs/ic-overview)
+- [Internet Computer wiki](https://wiki.internetcomputer.org/)
+- [Internet Computer forum](https://forum.dfinity.org/)
+- [Vite developer docs](https://vitejs.dev/guide/)
+- [React quick start guide](https://react.dev/learn)
+- [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)
+- [Azle developer docs](https://internetcomputer.org/docs/current/developer-docs/backend/typescript/)
+- [Developer Experience Feedback Board](https://dx.internetcomputer.org/)
 
-Check that the installation went smoothly by looking for clean output from the following command:
 
-```bash
-node --version
-```
+## 💡 Tips and Tricks
 
-Install the dfx command line tools for managing ICP applications:
-
-```bash
-DFX_VERSION=0.18.0 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
-```
-
-Check that the installation went smoothly by looking for clean output from the following command:
-
-```bash
-dfx --version
-```
-
-If after trying to run `dfx --version` you encounter an error such as `dfx: command not found`, you might need to add `$HOME/bin` to your path. Here's an example of doing this in your `.bashrc`:
-
-```bash
-echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
-```
-
-## Deployment
-
-```bash
-npx azle new hello_world
-cd hello_world
-
-npm install
-
-dfx start --clean --host 127.0.0.1:8000
-```
-
-In a separate terminal in the `hello_world` directory:
-
-```bash
-dfx deploy
-```
-
-If you are building an HTTP-based canister and would like your canister to autoreload on file changes (DO NOT deploy to mainnet with autoreload enabled):
-
-```bash
-AZLE_AUTORELOAD=true dfx deploy
-```
-
-If you have problems deploying see [Common deployment issues](https://demergent-labs.github.io/azle/deployment.html#common-deployment-issues).
-
-View your frontend in a web browser at `http://[canisterId].localhost:8000`.
-
-To obtain your application's [canisterId]:
-
-```bash
-dfx canister id backend
-```
-
-Communicate with your canister using any HTTP client library, for example using `curl`:
-
-```bash
-curl http://[canisterId].localhost:8000/db
-curl -X POST -H "Content-Type: application/json" -d "{ \"hello\": \"world\" }" http://[canisterId].localhost:8000/db/update
-```
-
-## Examples
-
-There are many Azle examples in the [examples directory](https://github.com/demergent-labs/azle/tree/main/examples). We recommend starting with the following:
-
--   [apollo_server](https://github.com/demergent-labs/azle/tree/main/examples/apollo_server)
--   [ethers](https://github.com/demergent-labs/azle/tree/main/examples/ethers)
--   [express](https://github.com/demergent-labs/azle/tree/main/examples/express)
--   [fs](https://github.com/demergent-labs/azle/tree/main/examples/fs)
--   [hello_world](https://github.com/demergent-labs/azle/tree/main/examples/hello_world)
--   [ic_evm_rpc](https://github.com/demergent-labs/azle/tree/main/examples/ic_evm_rpc)
--   [sqlite](https://github.com/demergent-labs/azle/tree/main/examples/sqlite)
--   [web_assembly](https://github.com/demergent-labs/azle/tree/main/examples/web_assembly)
+- If the links printed by dfx do not work in Codespaces, run `./canister_urls.py` and click the links shown there.
+- If you get an error "Error: An error happened during communication with the replica: ... Connection refused", run `dfx start --clean --background` to start dfx
