@@ -13,7 +13,7 @@ tasks:
       cd $HOME && git clone https://github.com/demergent-labs/wasmedge-quickjs && cd wasmedge-quickjs && git checkout c21ff69f442998e4cda4619166e23a9bc91418be
       cd $FOO
       mkdir -p ${HOME}/.config/azle
-      mv $HOME/wasmedge-quickjs ${HOME}/.config/azle/wasmedge_quickjs_$(npx azle@0.21.1 dockerfile-hash)
+      mv $HOME/wasmedge-quickjs ${HOME}/.config/azle/wasmedge-quickjs_$(npx azle@0.21.1 dockerfile-hash)
       sed -i 's/npx azle backend/npx azle --native-compilation backend/g' dfx.json
       open README.md
 
