@@ -5,7 +5,7 @@
             "main": "src/backend/backend.ts",
             "candid": "src/backend/backend.did",
             "candid_gen": "http",
-            "build": "npx azle --native-compilation backend",
+            "build": "npx azle backend",
             "wasm": ".azle/backend/backend.wasm",
             "gzip": true,
             "assets": [
