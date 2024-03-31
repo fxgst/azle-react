@@ -38,25 +38,25 @@ The frontend will update automatically as you save changes.
 For the backend, run `dfx deploy backend` to redeploy.
 To redeploy the smart contract, run `dfx deploy`.
 
-When ready, run `dfx deploy --network ic` to deploy your application to the ICP mainnet.
+When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
 
 ## 🛠️ Technology Stack
 
+- [Azle CDK](https://demergent-labs.github.io/azle/): the Canister Development Kit for JS/TS
 - [Vite](https://vitejs.dev/): high-performance tooling for front-end web development
 - [React](https://reactjs.org/): a component-based UI library
 - [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
 - [Sass](https://sass-lang.com/): an extended syntax for CSS stylesheets
-- [Azle CDK](https://demergent-labs.github.io/azle/): the Canister Development Kit for JS/TS
 
 ## 📚 Documentation
 
+- [Azle book](https://demergent-labs.github.io/azle/the_azle_book.html)
 - [Internet Computer docs](https://internetcomputer.org/docs/current/developer-docs/ic-overview)
 - [Internet Computer wiki](https://wiki.internetcomputer.org/)
 - [Internet Computer forum](https://forum.dfinity.org/)
 - [Vite developer docs](https://vitejs.dev/guide/)
 - [React quick start guide](https://react.dev/learn)
 - [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)
-- [Azle developer docs](https://internetcomputer.org/docs/current/developer-docs/backend/typescript/)
 - [Developer Experience Feedback Board](https://dx.internetcomputer.org/)
 
 
