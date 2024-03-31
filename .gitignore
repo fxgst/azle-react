@@ -19,8 +19,7 @@ target/
 
 # frontend code
 node_modules/
-dist/
-.svelte-kit/
+src/frontend/dist/
 
 # environment variables
 .env

@@ -1,6 +1,6 @@
 {
     "name": "ICP Azle x React Dev Container",
-    "image": "ghcr.io/fxgst/icp-dev-env-azle:1",
+    "image": "ghcr.io/fxgst/icp-dev-env-azle:2",
     "forwardPorts": [
         4943,
         3000
@@ -15,8 +15,7 @@
             "onAutoForward": "openBrowser"
         }
     },
-    "onCreateCommand": "nohup bash -c 'dfx start &'",
-    "updateContentCommand": "sed -i 's/npx azle backend/npx azle backend --native-compilation/g' dfx.json",
-    "postAttachCommand": "([ -f nohup.out ] && (npm i && cat nohup.out && rm nohup.out)) || exit 0",
+    "updateContentCommand": "sed -i 's/npx azle backend/npx azle --native-compilation backend/g' dfx.json",
+    "postAttachCommand": "npm install",
     "remoteUser": "root"
 }
