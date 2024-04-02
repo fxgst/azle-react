@@ -5,7 +5,7 @@
     },
     "name": "icp_azle_react",
     "scripts": {
-        "build": "VITE_CANISTER_URL=http://$(dfx canister id backend).localhost:4943 npm run build --workspaces --if-present",
+        "build": "./build_backend.sh",
         "prebuild": "npm run prebuild --workspaces --if-present",
         "pretest": "npm run prebuild --workspaces --if-present",
         "start": "VITE_CANISTER_URL=http://$(dfx canister id backend).localhost:4943 npm start --workspaces --if-present",

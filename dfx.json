@@ -26,5 +26,6 @@
                 }
             ]
         }
-    }
+    },
+    "output_env_file": ".env"
 }
