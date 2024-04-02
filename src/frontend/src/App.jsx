@@ -7,7 +7,7 @@ function App() {
     event.preventDefault();
     const name = event.target.elements.name.value;
     fetch(
-      `${import.meta.env.CANISTER_ID}/greet`,
+      `${import.meta.env.VITE_CANISTER_URL}/greet`,
       {
         method: 'POST',
         headers: [['Content-Type', 'application/json']],
