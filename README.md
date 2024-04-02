@@ -4,6 +4,12 @@ This template gives you everything you need to build a full-stack Web3 applicati
 It includes a frontend built with Vite and React, and a backend written in JS/TS (Azle).
 
 ## Get started with one click:
+### Locally:
+
+Make sure you have you have the latest version of Docker (e.g. >25) and VS Code installed and running, then click the button below
+
+[![Open locally in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/fxgst/azle-react)
+
 ### In your browser:
 
 In Gitpod 
@@ -14,12 +20,6 @@ or GitHub Codespaces
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/fxgst/azle-react/?quickstart=1)
 
-
-### Locally:
-
-Make sure you have you have the latest version of Docker (e.g. >25) and VS Code installed and running, then click the button below
-
-[![Open locally in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/fxgst/azle-react)
 
 
 ## 🚀 Develop
@@ -35,7 +35,6 @@ npm start # Start the development server
 ```
 
 The frontend will update automatically as you save changes. 
-For the backend, run `dfx deploy backend` to redeploy.
 To redeploy the smart contract, run `dfx deploy`.
 
 When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
@@ -62,5 +61,11 @@ When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
 
 ## 💡 Tips and Tricks
 
-- If the links printed by dfx do not work in Codespaces, run `./canister_urls.py` and click the links shown there.
+- When developing remotely, navigating to links like `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943` will not work.
+Use `curl` on the command line instead, or develop locally.
+
+- Note that you might need to disable CORS in your browser to make backend calls from `localhost`.
+For example, for Chrome, run `open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security`
+ to disable CORS.
+
 - If you get an error "Error: An error happened during communication with the replica: ... Connection refused", run `dfx start --clean --background` to start dfx
