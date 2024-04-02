@@ -8,7 +8,7 @@
         "build": "VITE_CANISTER_URL=http://$(dfx canister id backend).localhost:4943 npm run build --workspaces --if-present",
         "prebuild": "npm run prebuild --workspaces --if-present",
         "pretest": "npm run prebuild --workspaces --if-present",
-        "start": "npm start --workspaces --if-present",
+        "start": "VITE_CANISTER_URL=http://$(dfx canister id backend).localhost:4943 npm start --workspaces --if-present",
         "test": "npm test --workspaces --if-present"
     },
     "type": "module",
