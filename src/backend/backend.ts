@@ -3,8 +3,8 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
-app.post('/greet', async (req, res) => {
-    res.json({ greeting: `Hello ${req.body.name}` });
+app.get('/greet', async (req, res) => {
+    res.json({ greeting: `Hello, ${req.query.name}` });
 });
 
 app.use(express.static('/dist'));

@@ -6,18 +6,10 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
     const name = event.target.elements.name.value;
-    fetch(
-      `${import.meta.env.VITE_CANISTER_URL}/greet`,
-      {
-        method: 'POST',
-        headers: [['Content-Type', 'application/json']],
-        body: JSON.stringify({
-          name: name
-        })
-      }
-    ).then(response => response.json()).then((json) => {
-      setGreeting(json.greeting)
-    });
+    fetch(`${import.meta.env.VITE_CANISTER_URL}/greet?name=${name}`)
+      .then(response => response.json()).then((json) => {
+        setGreeting(json.greeting)
+      });
   }
 
   return (
