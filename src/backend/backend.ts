@@ -28,8 +28,8 @@ app.get('/greet', (req, res) => {
 app.use(express.static('/dist'));
 
 app.post('/price-oracle', async (req, res) => {
-    const pair = req.body.pair;
-    const response = await fetch(`https://api.binance.com/api/v3/avgPrice?symbol=${pair}`);
+    const pair = req.query.pair;
+    const response = await fetch(`https://api.exchange.coinbase.com/products/${pair}/ticker`);
     const json = await response.json();
     res.json(json);
 });
