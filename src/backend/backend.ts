@@ -36,7 +36,7 @@ export default Server(
         app.post('/price-oracle', async (req, res) => {
             ic.setOutgoingHttpOptions({
                 maxResponseBytes: 20_000n,
-                cycles: 500_000_000_000n,
+                cycles: 500_000_000_000n, // HTTP outcalls cost cycles. Unused cycles are returned.
                 transformMethodName: 'transform'
             });
 
@@ -50,6 +50,10 @@ export default Server(
         return app.listen();
     },
     {
+        // The transformation function for the HTTP outcall responses.
+        // Required to reach consensus among different results the nodes might get.
+        // Only if they all get the same response, the result is returned, so make sure
+        // your HTTP requests are idempotent and don't depend e.g. on the time.
         transform: query([HttpTransformArgs], HttpResponse, (args) => {
             return {
                 ...args.response,
