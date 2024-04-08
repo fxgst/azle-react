@@ -30,10 +30,10 @@ When the editor opened, run the following commands to deploy the smart contract 
 npm install # Install project dependencies
 dfx start --clean # Start the local ICP node
 dfx deploy # Deploy smart contract locally
-
-npm start # Start the development server
 ```
 
+The canister will be reachable under `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943`.
+Call the canister using e.g., `curl http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/contacts` for HTTP endpoints and `dfx canister call backend <method>` for Candid endpoints.
 The frontend will update automatically as you save changes. 
 To redeploy the smart contract, run `dfx deploy`.
 
@@ -61,11 +61,11 @@ When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
 
 ## 💡 Tips and Tricks
 
-- When developing remotely, navigating to links like `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943` will not work.
+- When developing remotely, navigating to the canister's frontend in the browser will not work.
 Use `curl` on the command line instead, or develop locally.
 
 - Note that you might need to disable CORS in your browser to make backend calls from `localhost`.
 For example, for Chrome, run `open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security`
  to disable CORS.
 
-- If you get an error "Error: An error happened during communication with the replica: ... Connection refused", run `dfx start --clean --background` to start dfx
+- If you get an error "Error: An error happened during communication with the replica: ... Connection refused", run `dfx start --clean` to start dfx.
