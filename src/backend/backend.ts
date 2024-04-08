@@ -56,11 +56,7 @@ async function price(pair: string) {
         transformMethodName: 'transform'
     });
 
-    const timestamp = 1682978460; // May 1, 2023 22:01:00 GMT
-    const seconds = 60;
-    const response = await fetch(`https://api.exchange.coinbase.com/products/${pair}/candles?start=${timestamp}&end=${timestamp}&granularity=${seconds}`)
-
-    const responseText = await response.text();
-
-    return responseText;
+    const date = '2024-04-01';
+    const response = await fetch(`https://api.coinbase.com/v2/prices/${pair}/spot?date=${date}`)
+    return await response.text();
 }
