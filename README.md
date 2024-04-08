@@ -21,23 +21,31 @@ or GitHub Codespaces
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/fxgst/azle-react/?quickstart=1)
 
 
-
 ## 🚀 Develop
 
-When the editor opened, run the following commands to deploy the smart contract and start a development server:
+When the editor opened, run the following commands to start a local ICP node and deploy the canister smart contract:
 
-```sh
-npm install # Install project dependencies
-dfx start --clean # Start the local ICP node
+```bash
+dfx start --clean # Start a local ICP node
+# In a new terminal window:
 dfx deploy # Deploy smart contract locally
 ```
 
-The canister will be reachable under `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943`.
-Call the canister using e.g., `curl http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/contacts` for HTTP endpoints and `dfx canister call backend <method>` for Candid endpoints.
-The frontend will update automatically as you save changes. 
-To redeploy the smart contract, run `dfx deploy`.
+The smart contract will be reachable under `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943`.
+Call the smart contract using `curl` on the command line: 
+
+```bash
+# contacts endpoint
+curl http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/contacts
+# price-oracle endpoint
+curl -X POST http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/price-oracle -H 'content-type: application/json' -d '{"pair": "ICP-USD"}'
+```
+You can also use tools like Postman or HTTPie to interact with the smart contract.
+To redeploy the smart contract, run `dfx deploy` again.
 
 When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
+The command will print a different canister URL for mainnet, ending in `.raw.icp0.io`.
+You can make calls to the smart contract on mainnet just like to the local one!
 
 ## 🛠️ Technology Stack
 
