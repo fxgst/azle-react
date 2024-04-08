@@ -1,5 +1,5 @@
 import express from 'express';
-import { Server, ic, query, update, text } from 'azle';
+import { Server, ic, query } from 'azle';
 import {
     HttpResponse,
     HttpTransformArgs,
@@ -33,13 +33,23 @@ export default Server(
             res.json({ greeting: `Hello, ${req.query.name}` });
         });
 
+        app.post('/price-oracle', async (req, res) => {
+            ic.setOutgoingHttpOptions({
+                maxResponseBytes: 20_000n,
+                cycles: 500_000_000_000n,
+                transformMethodName: 'transform'
+            });
+
+            const date = '2024-04-01';
+            const response = await fetch(`https://api.coinbase.com/v2/prices/${req.body.pair}/spot?date=${date}`)
+            const response_text = await response.text();
+            res.json(response_text);
+        });
+
         app.use(express.static('/dist'));
         return app.listen();
     },
     {
-        price_oracle: update([text], text, async (pair) => {
-            return price(pair);
-        }),
         transform: query([HttpTransformArgs], HttpResponse, (args) => {
             return {
                 ...args.response,
@@ -48,15 +58,3 @@ export default Server(
         })
     }
 );
-
-async function price(pair: string) {
-    ic.setOutgoingHttpOptions({
-        maxResponseBytes: 20_000n,
-        cycles: 500_000_000_000n,
-        transformMethodName: 'transform'
-    });
-
-    const date = '2024-04-01';
-    const response = await fetch(`https://api.coinbase.com/v2/prices/${pair}/spot?date=${date}`)
-    return await response.text();
-}
