@@ -42,7 +42,7 @@ export default Server(
 
             const date = '2024-04-01';
             const response = await fetch(`https://api.coinbase.com/v2/prices/${req.body.pair}/spot?date=${date}`)
-            const response_text = await response.text();
+            const response_text = await response.json();
             res.json(response_text);
         });
 
