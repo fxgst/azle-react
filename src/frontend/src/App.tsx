@@ -3,7 +3,7 @@ import { useState } from 'react';
 function App() {
   const [greeting, setGreeting] = useState('');
 
-  function handleSubmit(event) {
+  function handleSubmit(event: any) {
     event.preventDefault();
     const name = event.target.elements.name.value;
     fetch(`${import.meta.env.VITE_CANISTER_URL}/greet?name=${name}`)
