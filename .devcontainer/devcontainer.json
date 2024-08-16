@@ -1,6 +1,6 @@
 {
     "name": "ICP Azle x React Dev Container",
-    "image": "ghcr.io/fxgst/icp-dev-env-azle:2",
+    "image": "ghcr.io/dfinity/icp-dev-env-azle:8",
     "forwardPorts": [
         4943,
         3000
