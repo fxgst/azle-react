@@ -7,6 +7,7 @@ import {
 
 
 export default Server(
+    // Server section
     () => {
         const app = express();
         app.use(express.json());
@@ -48,6 +49,7 @@ export default Server(
         app.use(express.static('/dist'));
         return app.listen();
     },
+    // Candid section
     {
         // The transformation function for the HTTP outcall responses.
         // Required to reach consensus among different results the nodes might get.
