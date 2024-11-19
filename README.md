@@ -32,6 +32,8 @@ dfx start --clean # Start a local ICP node
 dfx deploy # Deploy smart contract locally
 ```
 
+If you are developing in Gitpod or Codespaces, run `./canister_urls.py` to get the canister URLs.
+
 To redeploy the smart contract, run `dfx deploy` again.
 
 When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
@@ -55,14 +57,3 @@ You can make calls to the smart contract on mainnet just like to the local one!
 - [React quick start guide](https://react.dev/learn)
 - [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)
 - [Developer Experience Feedback Board](https://dx.internetcomputer.org/)
-
-
-## 💡 Tips and Tricks
-
-- When developing remotely, navigating to the canister's frontend in the browser might not work, develop locally instead.
-
-- Note that you might need to disable CORS in your browser to make backend calls from `localhost`.
-For example, for Chrome, run `open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security`
- to disable CORS.
-
-- If you get an error "Error: An error happened during communication with the replica: ... Connection refused", run `dfx start --clean` to start dfx.
