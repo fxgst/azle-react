@@ -1,30 +1,21 @@
 {
-    "canisters": {
-        "backend": {
-            "type": "custom",
-            "main": "src/backend/backend.ts",
-            "candid": "src/backend/backend.did",
-            "build": "npx azle backend",
-            "wasm": ".azle/backend/backend.wasm",
-            "gzip": true,
-            "assets": [
-                [
-                    "src/frontend/dist",
-                    "dist"
-                ]
-            ],
-            "build_assets": "npm run build",
-            "metadata": [
-                {
-                    "name": "candid:service",
-                    "path": "src/backend/backend.did"
-                },
-                {
-                    "name": "cdk:name",
-                    "content": "azle"
-                }
-            ]
-        }
+  "canisters": {
+    "backend": {
+      "type": "azle",
+      "main": "src/backend/index.ts",
+      "declarations": {
+        "output": "../declarations/backend",
+        "node_compatibility": true
+      }
     },
-    "output_env_file": ".env"
+    "frontend": {
+      "dependencies": ["backend"],
+      "frontend": {
+        "entrypoint": "src/frontend/index.html"
+      },
+      "source": ["src/frontend/dist"],
+      "type": "assets"
+    }
+  },
+  "output_env_file": ".env"
 }

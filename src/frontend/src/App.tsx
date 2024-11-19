@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { createActor, canisterId } from "../../declarations/backend";
 
 function App() {
-  const [greeting, setGreeting] = useState('');
+  const [greeting, setGreeting] = useState("");
 
   function handleSubmit(event: any) {
     event.preventDefault();
     const name = event.target.elements.name.value;
-    fetch(`${import.meta.env.VITE_CANISTER_URL}/greet?name=${name}`)
-      .then(response => response.json()).then((json) => {
-        setGreeting(json.greeting)
-      });
+    const backend = createActor(canisterId);
+    backend.greet(name).then((greeting: any) => {
+      setGreeting(greeting);
+    });
+    return false;
   }
 
   return (
@@ -23,7 +25,7 @@ function App() {
         <button type="submit">Click Me!</button>
       </form>
       <section id="greeting">{greeting}</section>
-    </main >
+    </main>
   );
 }
 

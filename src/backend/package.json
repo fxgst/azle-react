@@ -1,13 +1,9 @@
 {
-    "name": "backend",
-    "version": "0.0.0",
-    "private": true,
-    "type": "module",
-    "dependencies": {
-        "azle": "^0.21.1",
-        "express": "^4.19.2"
-    },
-    "devDependencies": {
-        "@types/express": "^4.17.21"
-    }
+  "dependencies": {
+    "azle": "^0.24.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
 }

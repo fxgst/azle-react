@@ -1,21 +1,15 @@
 {
-    "name": "ICP Azle x React Dev Container",
-    "image": "ghcr.io/dfinity/icp-dev-env-azle:8",
-    "forwardPorts": [
-        4943,
-        3000
-    ],
-    "portsAttributes": {
-        "4943": {
-            "label": "dfx",
-            "onAutoForward": "ignore"
-        },
-        "3000": {
-            "label": "node",
-            "onAutoForward": "openBrowser"
-        }
+  "name": "Azle x React",
+  "image": "ghcr.io/fxgst/icp-dev-env-azle:9",
+  "forwardPorts": [4943, 5173],
+  "portsAttributes": {
+    "4943": {
+      "label": "dfx",
+      "onAutoForward": "ignore"
     },
-    "updateContentCommand": "sed -i 's/npx azle backend/npx azle --native-compilation backend/g' dfx.json",
-    "postAttachCommand": "npm install",
-    "remoteUser": "root"
+    "5173": {
+      "label": "vite",
+      "onAutoForward": "openBrowser"
+    }
+  }
 }
