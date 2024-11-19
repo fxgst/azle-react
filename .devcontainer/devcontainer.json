@@ -1,6 +1,6 @@
 {
   "name": "Azle x React",
-  "image": "ghcr.io/fxgst/icp-dev-env-azle:10",
+  "image": "ghcr.io/dfinity/icp-dev-env-azle:14",
   "forwardPorts": [4943, 5173],
   "portsAttributes": {
     "4943": {
