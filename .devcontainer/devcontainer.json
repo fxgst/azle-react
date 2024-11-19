@@ -11,5 +11,10 @@
       "label": "vite",
       "onAutoForward": "openBrowser"
     }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["dfinity-foundation.vscode-motoko"]
+    }
   }
 }

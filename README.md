@@ -26,25 +26,16 @@ or GitHub Codespaces
 When the editor opened, run the following commands to start a local ICP node and deploy the canister smart contract:
 
 ```bash
+npm install # Install dependencies
 dfx start --clean # Start a local ICP node
 # In a new terminal window:
 dfx deploy # Deploy smart contract locally
 ```
 
-The smart contract will be reachable under `http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943`.
-Call the smart contract using `curl` on the command line: 
-
-```bash
-# contacts endpoint
-curl http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/contacts
-# price-oracle endpoint
-curl -X POST http://bkyz2-fmaaa-aaaaa-qaaaq-cai.localhost:4943/price-oracle -H 'content-type: application/json' -d '{"pair": "ICP-USD"}'
-```
-You can also use tools like Postman or HTTPie to interact with the smart contract.
 To redeploy the smart contract, run `dfx deploy` again.
 
 When ready, run `dfx deploy --ic` to deploy your application to the ICP mainnet.
-The command will print a different canister URL for mainnet, ending in `.raw.icp0.io`.
+The command will print a different canister URL for mainnet, ending in `.icp0.io`.
 You can make calls to the smart contract on mainnet just like to the local one!
 
 ## 🛠️ Technology Stack
@@ -53,7 +44,6 @@ You can make calls to the smart contract on mainnet just like to the local one!
 - [Vite](https://vitejs.dev/): high-performance tooling for front-end web development
 - [React](https://reactjs.org/): a component-based UI library
 - [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
-- [Sass](https://sass-lang.com/): an extended syntax for CSS stylesheets
 
 ## 📚 Documentation
 
@@ -69,8 +59,7 @@ You can make calls to the smart contract on mainnet just like to the local one!
 
 ## 💡 Tips and Tricks
 
-- When developing remotely, navigating to the canister's frontend in the browser will not work.
-Use `curl` on the command line instead, or develop locally.
+- When developing remotely, navigating to the canister's frontend in the browser might not work, develop locally instead.
 
 - Note that you might need to disable CORS in your browser to make backend calls from `localhost`.
 For example, for Chrome, run `open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security`
