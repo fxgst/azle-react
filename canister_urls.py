@@ -17,7 +17,7 @@ def get_host():
 
 if __name__ == "__main__":
     root_path = path.dirname(path.realpath(__file__))
-    canister_id_file = f"{root_path}/../.dfx/local/canister_ids.json"
+    canister_id_file = f"{root_path}/.dfx/local/canister_ids.json"
     if not path.exists(canister_id_file):
         print(f"Run 'dfx deploy' first.")
         exit(1)

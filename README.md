@@ -57,3 +57,9 @@ You can make calls to the smart contract on mainnet just like to the local one!
 - [React quick start guide](https://react.dev/learn)
 - [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)
 - [Developer Experience Feedback Board](https://dx.internetcomputer.org/)
+
+## 💡 Tips and Tricks
+
+- If you get an error "You installed esbuild for another platform than the one you're currently using.", remove the `node_modules` folder and run `npm install` again.
+
+- If you get errors accessing the URLs developing remotely, try running `./canister_urls.py` to get the correct URLs.
