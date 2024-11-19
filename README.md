@@ -32,7 +32,15 @@ dfx start --clean # Start a local ICP node
 dfx deploy # Deploy smart contract locally
 ```
 
-If you are developing in Gitpod or Codespaces, run `./canister_urls.py` to get the canister URLs.
+If you are developing in Github Codespaces, run `./canister_urls.py` to get the canister URLs.
+
+To interact with the backend canister smart contract, you can use `dfx` on the command line:
+
+```bash
+dfx canister call backend greet '("Dom")' # Call the greet query function with the argument "Dom"
+# or 
+dfx canister call backend setMessage '("GM")' # Call the setMessage update function
+```
 
 To redeploy the smart contract, run `dfx deploy` again.
 
@@ -60,6 +68,8 @@ You can make calls to the smart contract on mainnet just like to the local one!
 
 ## 💡 Tips and Tricks
 
-- If you get an error "You installed esbuild for another platform than the one you're currently using.", remove the `node_modules` folder and run `npm install` again.
+- If you get errors accessing the canister URLs developing remotely, try running `./canister_urls.py` to get the correct URLs.
 
-- If you get errors accessing the URLs developing remotely, try running `./canister_urls.py` to get the correct URLs.
+- Run `npm run dev` to see the frontend update live as you make changes.
+
+- If you get an error "You installed esbuild for another platform than the one you're currently using.", remove the `node_modules` folder and run `npm install` again.
