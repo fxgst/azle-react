@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "npm i && dfx generate backend",
+    "prebuild": "npm i --include=dev && dfx generate backend",
     "build": "tsc && vite build",
     "dev": "vite"
   },
