@@ -32,7 +32,8 @@ dfx start --clean # Start a local ICP node
 dfx deploy # Deploy smart contract locally
 ```
 
-If you are developing in Github Codespaces, run `./canister_urls.py` to get the canister URLs.
+If you are developing in Github Codespaces, run `./canister_urls.py` to get the correct canister URLs.
+For Gitpod, use the URLs that start with `http://127.0.0.1`.
 
 To interact with the backend canister smart contract, you can use `dfx` on the command line:
 
